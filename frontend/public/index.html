@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #0d6efd, #6610f2);
+      color: white;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .welcome-box {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1s ease;
+      max-width: 650px;
+    }
+
+    .logo-img {
+      max-width: 120px;
+      margin-bottom: 20px;
+      animation: fadeIn 1.2s ease;
+    }
+
+    .btn-custom {
+      background-color: #ffffff;
+      color: #0d6efd;
+      font-weight: bold;
+      border-radius: 25px;
+      padding: 10px 25px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-custom:hover {
+      background-color: #f8f9fa;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Animasi teks bolak-balik */
+    .marquee {
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .marquee span {
+      display: inline-block;
+      padding: 0 100%;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ffc107;
+      animation: bounceMarquee 8s ease-in-out infinite;
+    }
+
+    @keyframes bounceMarquee {
+      0%   { transform: translateX(0); }
+      50%  { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body class="d-flex align-items-center justify-content-center">
+  <!-- Spinner -->
+  <div id="spinner" class="d-none position-fixed top-0 start-0 w-100 h-100 bg-white bg-opacity-75 d-flex justify-content-center align-items-center" style="z-index: 9999;">
+    <div class="spinner-border text-primary" role="status"></div>
+  </div>
+
+  <div class="welcome-box text-center">
+    <img src="../public/logo.png" alt="Synxchro Logo" class="logo-img"/>
+    <div class="marquee mb-3">
+      <span>Selamat Datang di Forum PT. SYNXCHRO ✨</span>
+    </div>
+    <p class="mb-4">Silakan login terlebih dahulu untuk melanjutkan.</p>
+    <a href="/login.html" class="btn btn-custom">Login</a>
+  </div>
+</body>
+</html>

@@ -53,10 +53,17 @@ func Login(c *fiber.Ctx) error {
 		return c.Status(400).JSON(fiber.Map{"error": "User tidak ditemukan"})
 	}
 
-	// Verifikasi password
 	if err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(req.Password)); err != nil {
 		return c.Status(400).JSON(fiber.Map{"error": "Password salah"})
 	}
+
+	// ✅ Set cookie login
+	c.Cookie(&fiber.Cookie{
+		Name:     "logged_in",
+		Value:    "true",
+		HTTPOnly: true,
+		Path:     "/",
+	})
 
 	return c.JSON(fiber.Map{"message": "Login berhasil!"})
 }
